@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <script src="C:\Codes\Code Written\Web Programming & Java Script Penn Enginnering\JavaScript\jQueryFile.js"></script>
+    </head>
+    <body>
+        <form>
+            <select name="choose">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+            <p>
+                <input type="radio" name="species" value="dog">Dog</input>
+                <input type="radio" name="species" value="cat">Cat</input>
+                <input type="radio" name="species" value="bird">Bird</input> </p>
+            <p>
+                <input type="checkbox" value="Happy">Happy</input>
+                <input type="checkbox" value="Cute">Cute</input>
+                <input type="checkbox" value="Smart">Smart</input> </p>
+        </form>
+        <p>
+            I'd like to buy <span id="featureSpan"></span>
+            <span id="gender"></span> <span id="species">animal</span>.
+            <script>
+                $("select[name='choose']").change(function(){
+                    $('#gender').html($(this).val())
+                });
+
+                $("input:radio[name='species']").change(function() {
+                    if ($(this).prop('checked'))
+                    {
+                        $('#species').html($(this).val());
+                    }
+
+
+                // all checked check boxes
+                var allchecked = [];
+                $('input:checkbox').change(function () {
+                  var value = $(this).val();
+                  if ($(this).prop('checked'))
+                  {
+                      allchecked.push(value);
+                  }
+                  else
+                  {
+                   var index = allchecked.indexOf(value);
+                   if (index != -1)
+                   allchecked.splice(index, 1);
+                  }
+                  $('#featureSpan').html('');
+                  for ( i=0; i< allchecked.length; i++)
+                  {
+                      $('#featureSpan').append(allchecked[i]);
+                      if (i < allchecked.length -1)
+                      $('#featureSpan').append(', ')
+                      else
+                      $('#featureSpan').append(' ');
+                  }
+
+
+
+                })
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                });
+            </script>
+    </body>
+</html>

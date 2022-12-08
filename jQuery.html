@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <title>My webPage</title>
+        <script src="C:\Codes\Code Written\Web Programming & Java Script Penn Enginnering\JavaScript\jQueryFile.js"></script>
+    </head>
+    <body>
+        <button id="clickMe">Click Me!</button>
+        <p>
+            You have clicked the button <span id="numClicks">0 times</span>
+        </p>
+        <script>
+            var clicks = 0
+            function clickhandler() {
+                clicks++
+               var numClicksSpan = $('#numClicks');
+               if (clicks == 1)
+               numClicksSpan.html('once')
+               else
+               numClicksSpan.html(clicks+'times');
+            }
+            //var button = $('#clickMe');
+            $('#clickMe').click(clickhandler);
+
+        </script>
+    </body>
+</html>

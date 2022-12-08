@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <body>
+            <div>
+                you have visited this page <span id="report"></span> times.<br>
+                your last visit was <span id="LastVisitDate"></span>.
+            </div>
+            <script>
+                var  Timevisited = 0;
+                var LastVisitDate = 'never';
+                if (localStorage.LastVisit) {
+                // timevisited = parseInt(localStorage.timevisited);
+                var LastVisit = JSON.parse(localStorage.lastVisit);
+                Timevisited = LastVisit.numVisits;
+                LastVisitDate = LastVisit.date;
+                }
+                document.getElementById('LastVisitDate').innerHTML = LastVisitDate;
+                Timevisited++ ;
+                document.getElementById('report').innerHTML = Timevisited;
+
+                var myLastVisit = { }
+                myLastVisit.date = new Date ();
+                myLastVisit.numVisits = Timevisited;
+                localStorage.lastVisit = JSON.stringify(myLastVisit);
+
+                //localStorage.setItem('timevisited', timevisited);
+                //var report = document.getElementById('report');
+                //report.innerHTML = timevisited;
+                //if (timevisited > 10)
+                //{
+                //    report.style.backgroundColor = 'red';
+               // }
+            </script>
+        </body>
+    </head>
+</html>
